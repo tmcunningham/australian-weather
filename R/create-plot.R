@@ -14,8 +14,8 @@ city = "Brisbane"
 scatter_plot = 
 df %>%
   filter(Location == city) %>%
-  ggplot(aes(x = Temp9am, y = Humidity9am)) + 
-  geom_point(colour = "green") +
+  ggplot(aes(x = Temp9am, y = Humidity9am)) +
+  geom_point(colour = "purple") +
   labs(title = city,
        caption = "Copyright by the Australian Commonwealth Bureau of Meteorology") +
   theme_minimal() +
@@ -30,13 +30,14 @@ time_series =
   ggplot(aes(x = Date, y = Temp9am)) +
   geom_line()
 ggsave(filename = "graphics/timeseries-rainfall.png",
-       plot = scatter_plot)
+       plot = time_series)
 
 
 bar_plot <- df %>%
   group_by(Location) %>%
   summarise(avg_rainfall = mean(Rainfall, na.rm = T)) %>%
   ggplot(aes(x = avg_rainfall, y = Location)) +
-  geom_col(fill = "pink")
+  geom_col(colour = "skyblue", fill = "pink")
+
 
 ggsave(filename = "graphics/bar-rainfall-location.png", plot = bar_plot)
