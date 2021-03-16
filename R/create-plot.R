@@ -37,6 +37,7 @@ bar_plot <- df %>%
   group_by(Location) %>%
   summarise(avg_rainfall = mean(Rainfall, na.rm = T)) %>%
   ggplot(aes(x = avg_rainfall, y = Location)) +
-  geom_col(colour = "skyblue")
+  geom_col(colour = "skyblue", fill = "pink")
+
 
 ggsave(filename = "graphics/bar-rainfall-location.png", plot = bar_plot)
