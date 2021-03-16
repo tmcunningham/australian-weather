@@ -30,7 +30,7 @@ time_series =
   ggplot(aes(x = Date, y = Temp9am)) +
   geom_line()
 ggsave(filename = "graphics/timeseries-rainfall.png",
-       plot = scatter_plot)
+       plot = time_series)
 
 
 bar_plot <- df %>%
